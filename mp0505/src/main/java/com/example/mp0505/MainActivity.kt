@@ -10,6 +10,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.content.ContextCompat
 
 class MainActivity : AppCompatActivity() {
     lateinit	var	sObj1: Switch
@@ -35,11 +36,28 @@ class MainActivity : AppCompatActivity() {
         ivObj1=findViewById(R.id.imageView1)
         ivObj2=findViewById(R.id.imageView2)
 
+        fun setCat(on: Boolean) {
+            ivObj1.visibility = if (on) View.VISIBLE else View.INVISIBLE
+        }
+
+        fun setLight(on: Boolean) {
+            if (on) {
+                ivObj2.setImageResource(R.drawable.light32)
+                sObj2.thumbDrawable = ContextCompat.getDrawable(this, R.drawable.on3)
+            } else {
+                ivObj2.setImageResource(R.drawable.light31)
+                sObj2.thumbDrawable = ContextCompat.getDrawable(this, R.drawable.off3)
+            }
+        }
+
+        setCat(sObj1.isChecked)
+        setLight(sObj2.isChecked)
+
         sObj1.setOnCheckedChangeListener{	buttonView,	isChecked->
-            // TODO : event handler
+            setCat(isChecked)
         }
         sObj2.setOnCheckedChangeListener{	buttonView,		isChecked->
-            // TODO  event handler
+            setLight(isChecked)
         }
     }
 }

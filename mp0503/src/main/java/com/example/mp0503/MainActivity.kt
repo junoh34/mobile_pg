@@ -30,7 +30,16 @@ class MainActivity : AppCompatActivity() {
         rbObj3=findViewById(R.id.radioButton3)
         rbObj4=findViewById(R.id.radioButton4)
 
+        val answerId = R.id.radioButton2
+
         val	listener = CompoundButton.OnCheckedChangeListener{ buttonView, isChecked	->
+            if (isChecked) {
+                if (buttonView.id == answerId) {
+                    Toast.makeText(this, "맞았습니다", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "틀렸습니다", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
         rbObj1.setOnCheckedChangeListener(listener)
         rbObj2.setOnCheckedChangeListener(listener)

@@ -33,17 +33,37 @@ class MainActivity : AppCompatActivity() {
         btObj4=findViewById(R.id.button4)
         ivObj=findViewById(R.id.imageView2)
 
-        btObj1.setOnClickListener {
-            // TODO : event handler
+        val images = intArrayOf(
+            R.drawable.answer1,
+            R.drawable.answer2,
+            R.drawable.answer3,
+            R.drawable.answer4
+        )
+
+        val answer = (1..4).random()
+        fun check(choice: Int) {
+            ivObj.setImageResource(images[choice - 1])
+            if (choice == answer) {
+                Toast.makeText(this, "맞았습니다", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "틀렸습니다", Toast.LENGTH_SHORT).show()
+            }
         }
-        btObj2.setOnClickListener(View.OnClickListener	{
-            // TODO : event handler
+
+        btObj1.setOnClickListener {
+            check(1)
+        }
+        btObj2.setOnClickListener(View.OnClickListener {
+            check(2)
         })
-        btObj3.setOnClickListener(object : View.OnClickListener	{
-            // TODO : event handler
-        })
+        btObj3.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: android.view.View?) {
+                check(3)
+            }})
         btObj4.setOnClickListener(object : View.OnClickListener {
-            // TODO : event handler
+            override fun onClick(v: android.view.View?){
+                check(4)
+            }
         })
     }
 }

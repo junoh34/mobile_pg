@@ -37,8 +37,26 @@ class MainActivity : AppCompatActivity() {
         btnObj=findViewById(R.id.button)
         tvObj=findViewById(R.id.textViewResult)
 
+        val names = mapOf(
+            R.id.checkBox1 to "소방차",
+            R.id.checkBox2 to "청진기",
+            R.id.checkBox3 to "휘핑기",
+            R.id.checkBox4 to "장갑"
+        )
+
+        val answerIds = setOf(R.id.checkBox1, R.id.checkBox4)
+
+        val selected = linkedSetOf<Int>()
+
+
+
         val listener = CompoundButton.OnCheckedChangeListener{ buttonView, isChecked ->
-            // TODO :  event handler
+            if (isChecked) {
+                selected.add(buttonView.id)
+                Toast.makeText(this, "${names[buttonView.id]}를 선택했습니다.", Toast.LENGTH_SHORT).show()
+            } else {
+                selected.remove(buttonView.id)
+            }
         }
 
         cbObj1.setOnCheckedChangeListener(listener)
@@ -47,7 +65,19 @@ class MainActivity : AppCompatActivity() {
         cbObj4.setOnCheckedChangeListener(listener)
 
         btnObj.setOnClickListener {
-            // TODO : event hander
+            if (btnObj.text == "재시작하기") {
+                // 초기화
+                cbObj1.isChecked = false
+                cbObj2.isChecked = false
+                cbObj3.isChecked = false
+                cbObj4.isChecked = false
+                btnObj.text = "결과보기"
+                tvObj.text = "소방관의 용품을 선택해주세요"
+            } else {
+                // 정답 여부를 버튼 아래 텍스트로 출력
+                tvObj.text = if (selected == answerIds) "맞았습니다" else "틀렸습니다"
+                btnObj.text = "재시작하기"
+            }
         }
     }
 }
