@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">mp0305</string>
+    <string name="cat1_filename">cat1.png</string>
+    <string name="background_window">Background window</string>
+</resources>
