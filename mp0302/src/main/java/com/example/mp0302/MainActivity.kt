@@ -12,7 +12,7 @@ import androidx.core.graphics.toColorInt
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var textView : TextView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        textView = findViewById<TextView>(R.id.textView).apply {
+        findViewById<TextView>(R.id.textView).apply {
             text = "Hello World!"
             setTextColor("#03A9F4".toColorInt())
             textSize = 50f

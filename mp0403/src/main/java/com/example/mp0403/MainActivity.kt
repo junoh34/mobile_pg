@@ -32,8 +32,9 @@ class MainActivity : AppCompatActivity() {
         imgDress.visibility = View.INVISIBLE
         imgNeck.visibility = View.INVISIBLE
         imgCrown.visibility = View.INVISIBLE
-    }
+    } /*View.INVISIBLE 이걸로 보이게 가능, 혼자할 때 이거 몰라서 당황했었음*/
 
+    /*view 입력으로 받고 view.id가 있다면 when 실행, case 처럼 : 대신 -> 사용*/
     fun onClickChoice(view: View) {
         when(view.id) {
             R.id.imgDress1 -> {
@@ -65,7 +66,7 @@ class MainActivity : AppCompatActivity() {
                 imgNeck.setImageResource(R.drawable.necklace2)
             }
         }
-    }
+    } /*이거 클릭하면 이렇게 되게 일일이 설정함, 이것보다 xml때문에 혼자 만든게 이상하게 완성됨*/
     fun onClickReset(view: View?) {
         imgDress.visibility = View.INVISIBLE
         imgNeck.visibility = View.INVISIBLE

@@ -40,14 +40,16 @@ class MainActivity : AppCompatActivity() {
             R.drawable.answer4
         )
 
-        val answer = (1..4).random()
+        var answer = (1..4).random()
         fun check(choice: Int) {
-            ivObj.setImageResource(images[choice - 1])
+            ivObj.visibility = View.VISIBLE
+            ivObj.setImageResource(images[answer - 1])
             if (choice == answer) {
                 Toast.makeText(this, "맞았습니다", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(this, "틀렸습니다", Toast.LENGTH_SHORT).show()
             }
+            answer = (1..4).random()
         }
 
         btObj1.setOnClickListener {

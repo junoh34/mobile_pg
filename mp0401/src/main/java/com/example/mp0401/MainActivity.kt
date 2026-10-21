@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         num2 = (1..6).random()
         imgView1.setImageResource(diceNumber[num1 - 1])
         imgView2.setImageResource(diceNumber[num2 - 1])
-    }
+    } /*intArrayOf 여기에 주사위를 넣고 이걸로 img에 추가, 이거할때 코드를 못봐서 지옥이였음*/
 
     fun onClickChoice(view: View?) {
         val inputStr = txtEditR.text.toString()
@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
         } else {
             Toast.makeText(applicationContext, "틀렸습니다.", Toast.LENGTH_LONG).show()
         }
-    }
+    } /*Toast 사용해서 결과를 출력함*/
 
     fun onClickSuffle(view: View?) {
         num1 = (1..6).random()
@@ -64,5 +64,5 @@ class MainActivity : AppCompatActivity() {
         imgView1.setImageResource(diceNumber[num1 - 1])
         imgView2.setImageResource(diceNumber[num2 - 1])
         txtEditR.setText("")
-    }
+    } /*섞기 버튼이랑 결과 보기 버튼이 다름*/
 }

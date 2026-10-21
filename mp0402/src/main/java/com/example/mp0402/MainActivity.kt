@@ -29,6 +29,6 @@ class MainActivity : AppCompatActivity() {
             R.id.btnImage1 -> Toast.makeText(applicationContext, "틀렸습니다", Toast.LENGTH_SHORT).show()
             R.id.btnImage2 -> Toast.makeText(applicationContext, "맞았습니다", Toast.LENGTH_SHORT).show()
             R.id.btnImage3 -> Toast.makeText(applicationContext, "틀렸습니다", Toast.LENGTH_SHORT).show()
-        }
+        } /*이미지가 정해져있어서 random이 아님*/
     }
 }

@@ -37,26 +37,19 @@ class MainActivity : AppCompatActivity() {
         btnObj=findViewById(R.id.button)
         tvObj=findViewById(R.id.textViewResult)
 
-        val names = mapOf(
-            R.id.checkBox1 to "소방차",
-            R.id.checkBox2 to "청진기",
-            R.id.checkBox3 to "휘핑기",
-            R.id.checkBox4 to "장갑"
-        )
-
-        val answerIds = setOf(R.id.checkBox1, R.id.checkBox4)
-
-        val selected = linkedSetOf<Int>()
-
-
-
         val listener = CompoundButton.OnCheckedChangeListener{ buttonView, isChecked ->
-            if (isChecked) {
-                selected.add(buttonView.id)
-                Toast.makeText(this, "${names[buttonView.id]}를 선택했습니다.", Toast.LENGTH_SHORT).show()
-            } else {
-                selected.remove(buttonView.id)
-            }
+            if(isChecked){
+                when(buttonView.id){
+                    R.id.checkBox1 -> Toast.makeText(applicationContext,
+                        "소방차를 선택했습니다.",	Toast.LENGTH_LONG).show()
+                    R.id.checkBox2 -> Toast.makeText(applicationContext,
+                        "거품기를 선택했습니다.",	Toast.LENGTH_LONG).show()
+                    R.id.checkBox3 -> Toast.makeText(applicationContext,
+                        "청진기를 선택했습니다.",	Toast.LENGTH_LONG).show()
+                    R.id.checkBox4 -> Toast.makeText(applicationContext,
+                        "장갑을 선택했습니다.",	Toast.LENGTH_LONG).show()
+                }
+            } /*여기 추가하는게 실습인데 전에 한것처럼 when 사용해서 작성*/
         }
 
         cbObj1.setOnCheckedChangeListener(listener)
@@ -65,19 +58,26 @@ class MainActivity : AppCompatActivity() {
         cbObj4.setOnCheckedChangeListener(listener)
 
         btnObj.setOnClickListener {
-            if (btnObj.text == "재시작하기") {
-                // 초기화
+            if (!flag) {
+                if (cbObj1.isChecked && cbObj4.isChecked) {
+                    tvObj.text = "맞았습니다"
+                    btnObj.text = "재시작하기"
+                    flag = true
+                } else {
+                    tvObj.text = "틀렸습니다"
+                    btnObj.text = "재시작하기"
+                    flag = true
+                }
+            } else {
                 cbObj1.isChecked = false
                 cbObj2.isChecked = false
                 cbObj3.isChecked = false
                 cbObj4.isChecked = false
                 btnObj.text = "결과보기"
                 tvObj.text = "소방관의 용품을 선택해주세요"
-            } else {
-                // 정답 여부를 버튼 아래 텍스트로 출력
-                tvObj.text = if (selected == answerIds) "맞았습니다" else "틀렸습니다"
-                btnObj.text = "재시작하기"
+                flag = false
             }
-        }
+        } /*여기도 체우는데 위에 falg는 flase로 해서 무조건 실행하게 만듬, 이러고 조건해서 만들기,
+        버튼을 누르면 true가 되어서 재시작이 되게 만듬, flag라는게 실습할때 못봤던거 같은데 모르겠다.*/
     }
 }

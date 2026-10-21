@@ -24,8 +24,7 @@ class MainActivity : AppCompatActivity() {
         }
         tvNum1 = findViewById(R.id.num1)
         tvNum2 = findViewById(R.id.num2)
-    }
-
+    } /* tvNum1,2에 textview 받아서 onclicksum에서 사용, 저 함수는 xml에서 호출*/
     fun onClickSum(view: View?) {
         val v1 = tvNum1.text.toString().toInt()
         val v2 = tvNum2.text.toString().toInt()

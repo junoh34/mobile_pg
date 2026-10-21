@@ -49,6 +49,6 @@ class MainActivity : AppCompatActivity() {
                     "이메일: ${emailObj.text} \n" +
                     "생년월일: ${dateObj.text} \n" +
                     "연락처: ${phoneObj.text}"
-        }
+        } /*처음에 봤을때 onBtnClick 어디서 호출하는지 몰랐었음*/
     }
 }

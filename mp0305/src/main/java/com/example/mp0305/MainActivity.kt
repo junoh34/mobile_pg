@@ -37,5 +37,5 @@ class MainActivity : AppCompatActivity() {
         index = (index + 1) % imgNumber.size
         imgObj.setImageResource(imgNumber[index])
         numObj.text = "cat${index+1}.png"
-    }
+    } /*index 추가해서 다음꺼 불러오기, setImageResource 기억하기*/
 }

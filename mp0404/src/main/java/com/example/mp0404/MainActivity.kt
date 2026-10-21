@@ -32,5 +32,5 @@ class MainActivity : AppCompatActivity() {
 
         if (partA == 2 && partB == 5) Toast.makeText(applicationContext,"맞았습니다.", Toast.LENGTH_SHORT).show()
         else Toast.makeText(applicationContext,"틀렸습니다.", Toast.LENGTH_SHORT).show()
-    }
+    } /*applicationContext, 전체 환경정보를 준다고 한다. 마지막에 .show() 까먹지 않기*/
 }
